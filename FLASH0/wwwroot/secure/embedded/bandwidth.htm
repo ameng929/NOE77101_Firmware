@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<title>Bandwidth Monitor</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<link href="../../lib/main.css" type="text/css" rel="stylesheet">
+	</head>
+	<body>
+		<table width="100%" border="0">
+			<tr>
+				<td class="title">BANDWIDTH MONITOR</td>
+			</tr>
+			<tr>
+				<td align="center">
+					<APPLET CODEBASE="../../classes" ARCHIVE="webdiag.jar, XMLParser.jar" CODE="com.schneiderautomation.webdiag.BandwidthApplet.class"
+						WIDTH="760" HEIGHT="160">
+						<PARAM NAME="Refresh" VALUE="5000">
+						<PARAM NAME="Cnx" VALUE="Keep">
+						<PARAM NAME="Service" VALUE="/secure/system/Get?Bandwidth">
+					</APPLET>
+				</td>
+			</tr>
+		</table>
+		<table align="center" border="0">
+			<tr>
+				<TD style="BACKGROUND-COLOR: blue" width="20">&nbsp;</TD>
+				<TD><FONT face="arial,helvetica" size="2">Global Data&nbsp;</FONT></TD>
+				<TD style="BACKGROUND-COLOR: yellow" width="20">&nbsp;</TD>
+				<TD><FONT face="arial,helvetica" size="2">I/O Scanning&nbsp;</FONT></TD>
+				<TD style="BACKGROUND-COLOR: #00FF00" width="20">&nbsp;</TD>
+				<TD><FONT face="arial,helvetica" size="2">Modbus Messaging&nbsp;</FONT></TD>
+				<TD style="BACKGROUND-COLOR: gray" width="20">&nbsp;</TD>
+				<TD><FONT face="arial,helvetica" size="2">Other/Unused</FONT></TD>
+			</tr>
+		</table>
+		<br>
+		<table width="100%" border="0">
+			<tr>
+				<td align="center">Copyright &copy; 1998-2006, Schneider Automation SAS. All rights 
+					reserved.</td>
+			</tr>
+		</table>
+	</body>
+</html>

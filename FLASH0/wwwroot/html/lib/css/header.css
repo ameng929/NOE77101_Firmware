@@ -1,0 +1,72 @@
+body
+{
+	margin: 0px 0px 0px 0px;
+	white-space:nowrap;
+	font-size: 12px;
+	color: Black;
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: White;
+}
+
+a:link, a:visited, a:active
+{
+	color: White;
+	text-decoration: none;
+}
+
+a:hover
+{
+	color: White;
+	text-decoration: underline;
+}
+
+.product
+{
+	white-space:nowrap;
+	padding-left: 10px;
+	font-weight: bold;
+	font-size: 32px;
+	vertical-align: top;
+	height: 41px;
+}
+
+.productPocketPC
+{
+	margin-top:4px;
+	color: Black;
+	padding-left: 10px;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+.categoryPocketPC
+{
+	color: Black;
+	padding-left: 10px;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.menuProduct
+{
+	white-space:nowrap;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 12px;
+	height: 18px;
+ }
+
+.menu
+{
+	white-space:nowrap;
+	border-right: 1px solid White;
+	font-size: 12px;
+	background-color: #808080;
+	height: 18px;
+	width: 20%;
+}
+
+.menuIcon
+{
+	font-size: 12px;
+}

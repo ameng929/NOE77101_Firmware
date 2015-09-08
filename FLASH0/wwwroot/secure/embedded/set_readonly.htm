@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<title>Set or clear file read-only attribute</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<link href="../../lib/main.css" type="text/css" rel="stylesheet">
+	</head>
+	<body>
+		<SCRIPT LANGUAGE="JavaScript">
+<!-- Hide code from non-js browsers
+    function validateForm()
+    {        
+        if (document.form1.filename.value  == "")         
+        {
+            alert("You have not filled in the field. Please try again.");
+            return false;        
+        }        
+        else
+        {
+            return true;    
+        }
+    }
+// end hiding -->
+		</SCRIPT>
+		<table width="100%" border="0">
+			<tr>
+				<td class="title" align="center">Set or clear file read-only attribute</td>
+			</tr>
+			<tr>
+				<td align="center">
+					<br>
+					<FORM name="form1" method="GET" action="/secure/embedded/builtin" onSubmit="return validateForm()">
+						<TABLE border="0" cellspacing="0" cellpading="0" cols="2" width="350" height="60" bgcolor="#C0C0C0">
+							<TR>
+								<TD class="inputCell" width="40%"><font color="#000000">&nbsp;&nbsp;File Name </font>
+								</TD>
+								<TD class="inputCell"><INPUT type="text" name="filename" value="" size="20"></TD>
+							</TR>
+						</TABLE>
+						<BR>
+						<INPUT type="reset" name="reset" value="Reset the Form"> <INPUT type="submit" name="submit" value="Set file read only">
+						<INPUT type="submit" name="submit" value="Clear file read only">
+					</FORM>
+				</td>
+			<tr>
+				<td align="center">Copyright © 1998-2006, Schneider Automation SAS. All rights 
+					reserved.</td>
+			</tr>
+		</table>
+	</body>
+</html>

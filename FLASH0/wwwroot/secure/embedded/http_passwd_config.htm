@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<title>Modify Passwords</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<link href="../../lib/main.css" type="text/css" rel="stylesheet">
+			<script language="JavaScript">
+<!-- Hide code from non-js browsers
+    function validateHTTP()
+    {
+        if( (document.httpform.user.value       == "") ||
+            (document.httpform.passwd.value     == "") ||
+            (document.httpform.cnfpasswd.value  == "") )
+        {
+            alert("You have not filled in all the fields.");
+            return false;
+        }
+
+        return true;
+    }
+
+    function validateRDE()
+    {
+        if( (document.rdeform.npwd.value    == "") ||
+            (document.rdeform.cnfpwd.value  == "") )
+        {
+            alert("You have not filled in all the fields.");
+            return false;
+        }
+
+        return true;
+    }
+// end hiding -->
+			</script>
+	</head>
+	<body>
+		<table width="100%" border="0">
+			<tr>
+				<td class="title" align="center">Modify Passwords</td>
+			</tr>
+			<tr>
+				<td align="center">
+					<br>
+					<form name="httpform" method="get" action="/secure/embedded/builtin" onSubmit="return validateHTTP()">
+						<p>
+							<table border="0" cellspacing="0" cellpadding="4" bgcolor="#C0C0C0">
+								<caption class="capt">
+									<b>HTTP User Name and Password</b>
+								</caption>
+								<tr>
+									<td class="inputCell">New User Name:</td>
+									<td class="inputCell"><input type="text" name="user" size="20"></td>
+								</tr>
+								<tr>
+									<td class="inputCell">New Password:</td>
+									<td class="inputCell"><input type="password" name="passwd" size="20"></td>
+								</tr>
+								<tr>
+									<td class="inputCell">Confirm Password:</td>
+									<td class="inputCell"><input type="password" name="cnfpasswd" size="20"></td>
+								</tr>
+							</table>
+							<br>
+							<input type="submit" name="subhttppwd" value="Change HTTP Access">
+						</p>
+					</form>
+					<hr width="40%" size="1">
+					<form name="rdeform" method="get" action="/secure/embedded/builtin" onSubmit="return validateRDE()">
+						<p>
+							<table border="0" cellspacing="0" cellpadding="4" bgcolor="#C0C0C0">
+								<caption class="capt">
+									<b>Data Monitor Write Password</b>
+								</caption>
+								<tr>
+									<td class="inputCell">Write Password:</td>
+									<td class="inputCell"><input type="password" name="ipwd" size="20"></td>
+								</tr>
+								<tr>
+									<td class="inputCell">New Password:</td>
+									<td class="inputCell"><input type="password" name="npwd" size="20"></td>
+								</tr>
+								<tr>
+									<td class="inputCell">Confirm Password:</td>
+									<td class="inputCell"><input type="password" name="cnfpwd" size="20"></td>
+								</tr>
+							</table>
+							<br>
+							<input type="submit" name="subrdepwd" value="Change Write Password">
+						</p>
+					</form>
+				</td>
+			</tr>
+			<tr>
+				<td align="center">Copyright &copy; 1998-2006, Schneider Automation SAS. All rights 
+					reserved.</td>
+			</tr>
+		</table>
+	</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<title>Email Diagnostic</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<link href="../../lib/main.css" type="text/css" rel="stylesheet">
+	</head>
+	<body>
+		<table width="100%" border="0">
+			<tr>
+				<td class="title">EMAIL DIAGNOSTIC</td>
+			</tr>
+			<tr>
+				<td align="center">
+					<APPLET codebase="../../classes" archive="jvmver.jar" code="com.schneiderautomation.jvmver.JvmVerApplet"
+						width="500" height="45">
+						<PARAM name="boxbgcolor" value="white">
+						<PARAM name="jvminfo_1" value="Java 2 or better browser service required to view this page.">
+						<PARAM name="jvminfo_3" value="Java 2 may be downloaded from Sun MicroSystems. ">
+						<PARAM name="jvminfo_4" value=" http://java.sun.com/j2se/1.4.2/download.html">
+					</APPLET><br>
+					<APPLET codebase="../../classes" archive="webcfg.jar,xmlrpc-1.1.jar" code="com.schneiderautomation.webcfg.SMTPDiagClient"
+						width="500" height="260">
+						<PARAM name="ok" value="OK">
+						<PARAM name="nok" value="NOT OK">
+						<PARAM name="smtp_stat" value="Email Status:">
+						<PARAM name="smtp_ip" value="Email Server IP Address:">
+						<PARAM name="conn_stat" value="Link to Server Status:">
+						<PARAM name="smtp_sent" value="Number of e-mails sent:">
+						<PARAM name="smtp_resp" value="Number of Responses from Email Server:">
+						<PARAM name="smtp_error" value="Number of Errors:">
+						<PARAM name="smtp_lasterr" value="Last Errors:">
+						<PARAM name="smtp_header" value="Last Mail Header Used:">
+						<PARAM name="smtp_nofsec" value="Number of seconds elapsed since last e-mail successfully sent:">
+						<PARAM name="smtp_noftimes" value="Number of times the link to the server has been detected down:">
+						<PARAM name="no_response" value="Server Not Responding">
+					</APPLET>
+				</td>
+			</tr>
+			<tr>
+				<td align="center">Copyright &copy; 1998-2006, Schneider Automation SAS. All rights 
+					reserved.</td>
+			</tr>
+		</table>
+	</body>
+</html>

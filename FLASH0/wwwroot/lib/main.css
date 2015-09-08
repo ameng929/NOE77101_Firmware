@@ -1,0 +1,38 @@
+body,td
+{
+	margin: 0px 0px 0px 0px;
+	font-size: 12px;
+	color: Black;
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: White;
+}
+
+.title
+{
+	padding-left: 5px;
+	padding-right: 5px;
+	font-weight: bold;
+	color: Black;
+	white-space:nowrap;
+	font-size: 14px;
+	height: 18px;
+}
+
+.image
+{
+	padding-bottom:18px;
+}
+
+.inputCell
+{
+	color: Black;
+	white-space:nowrap;
+	background-color: silver;
+}
+
+.capt
+{
+	color: Black;
+	white-space:nowrap;
+	background-color: white;
+}

@@ -1,0 +1,286 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<title>Address Server Node Configuration</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<link href="../../lib/main.css" type="text/css" rel="stylesheet">
+			<SCRIPT LANGUAGE="JavaScript">
+<!-- Hide code from non-js browsers
+
+	function clear(str) {
+	// replace all '+' by a '-'
+		var result="";
+		var c;
+		
+		for(var i=0; i<str.length; i++) {
+			c=str.charAt(i);
+			if(c=='+') c='-';
+			result+=c;
+		}
+		return result;
+	}
+	
+	function clearSpace(str) {
+	// remove all the space in the string
+		var result="";
+		var c;
+		
+		for(var i=0; i<str.length; i++) {
+			c=str.charAt(i);
+			if((c!=' ') && (c!='.') && (c!=':') && (c!='-') && (c!=',') && (c!=';')) result+=c;
+		}
+		return result;
+	}
+
+	function abc(str) {
+		var string="API id rn ip nm gw ha submit";
+		str = unescape(str);
+		var strArray=str.split('=');
+		var index=string.indexOf(strArray[0]);
+		var str;
+
+		switch(index) {
+			case 0:		// API
+				document.form.API.value=strArray[1];
+				if(strArray[1] == "CHANGE") {
+					document.form.submit.value = "Modify the Entry";
+				} else {
+					document.form.submit.value = "Add the Entry";
+				}
+			case 4:		// id
+				document.form.id.value=strArray[1];
+				break;
+			case 7:		// rn
+			  	if(document.form.API.value=="CHANGE")
+			  		document.form.rn.value=strArray[1];
+				break;
+			case 10:	// ip
+				str=strArray[1];
+			  	if(document.form.API.value=="ADD")
+					str=str.substring(0, str.lastIndexOf('.')+1);
+				document.form.ip.value=str;
+				break;
+			case 13:	// nm
+				document.form.sm.value=strArray[1];
+				break;
+			case 16:	// gw
+				document.form.gw.value=strArray[1];
+				break;
+			case 19:	// ha
+			  	if(document.form.API.value=="CHANGE")
+					document.form.ha.value=clear(strArray[1]);
+				break;
+			case 22:	// submit
+				submit=strArray[1];
+				break;
+		}
+	}
+
+	function readVariables(string) {
+ 		var variable, c;
+		var strArray = string.split('&');
+
+		for(var i=0; i<strArray.length; i++) {
+			abc(strArray[i]);			
+		}
+	}
+
+	function testRoleName(rn) {
+		var valid="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890_";
+
+		if(rn.length != 0) {
+			for (var i=0; i<rn.length; i++) {
+				if (valid.indexOf(rn.substring(i, i+1)) == -1) return false;
+			}
+		}
+		return true;
+	}
+
+	function validateRoleName(elem) {
+		if(!testRoleName(elem.value)) {
+			alert("Invalid Role Name!");
+			elem.focus();
+			elem.select();
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+	function testMacAddress(address) {	
+		var valid="0123456789ABCDEF.,;:- ";
+
+		for (var i=0; i<address.length; i++) {
+			if (valid.indexOf(address.substring(i, i+1)) == -1) return false;
+		}
+						
+		var addr=clearSpace(address);	// clear all the space
+		if(addr.length!=12 && addr.length!=0) return false;
+
+		return true;
+	}
+		
+	function validateMacAddress(elem) {
+		var address=elem.value.toUpperCase();
+
+		if(!testMacAddress(address)) {
+			alert("The MAC Address must have 6 bytes coded in hexadecimal (0-F)!");
+			elem.focus();
+			elem.select();
+			return false;
+		} else {
+			var addr=clearSpace(address);	// clear all the space
+			if(addr.length!=0) {
+				address=addr.substring(0,2);
+				for(var i=1; i<6; i++) {
+					address+='-'+addr.substring(i*2,(i*2)+2);
+				}
+				elem.value=address;
+			}
+			return true;
+		}
+  	}
+
+	function testIP(ip) {
+		var valid="0123456789.";
+		var tab=ip.split('.');
+
+		for (var i=0; i<ip.length; i++) {
+			if (valid.indexOf(ip.substring(i, i+1)) == -1) return false;
+		}
+		if(tab.length != 4) return false;
+		if(tab[0]>255 || tab[1]>255 || tab[2]>255 || tab[3]>255 || tab[0].length==0 || tab[1].length==0 || tab[2].length==0 || tab[3].length==0) return false;
+
+		return true;
+	}
+
+	function validateIPAddress(elem) {
+		var ip=elem.value;
+
+		if(!testIP(ip)) {
+			alert("This is not a valid IP Address!");
+			elem.focus();
+			elem.select();
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+	function checkGateway() {
+		var source; var target; var mask;
+		var res1; var res2;
+		var ip;
+		if((form.ip.value!="") && (form.sm.value!="") && (form.gw.value!="")) {
+			ip = document.form.ip.value.split('.');
+			source = (ip[0] << 24) | (ip[1] << 16) | (ip[2] << 8) | ip[3];
+			ip = document.form.sm.value.split('.');
+			mask = (ip[0] << 24) | (ip[1] << 16) | (ip[2] << 8) | ip[3];
+			ip = document.form.gw.value.split('.');
+			target = (ip[0] << 24) | (ip[1] << 16) | (ip[2] << 8) | ip[3];
+			res1 = source & mask;
+			res2 = target & mask;
+			if(res1 == res2) return true;
+		}
+		return false;
+	}
+
+    function validateForm() {
+        if (((form.rn.value == "") && (form.ha.value == "")) || (form.ip.value == "") || (form.sm.value == "") || (form.gw.value == "")) {       
+            alert("You have not filled in all the fields.");
+            return false;        
+        } else {
+			if (!testRoleName(form.rn.value)) {
+				alert("Bad Role Name!");
+				return false;
+			}
+        		if (!validateMacAddress(form.ha)) {
+				return false;
+			} 
+        		if (!testIP(form.ip.value)) {
+				alert("Bad IP Address!");
+				return false;
+			} 
+			if (!testIP(form.sm.value)) {
+				alert("Bad Subnet Mask!");
+				return false;
+			}
+			if (!testIP(form.gw.value)) {
+				alert("Bad Gateway!");
+				return false;
+			}
+			if (!checkGateway()) {
+				alert("The gateway is not accessible trough the subnet mask!");
+				return false
+			}
+	        return true;
+        }
+    }
+
+	function protectRoleName() {
+		if((document.form.ha.value!="") && (document.form.rn.value=="")) {
+			document.form.rn.blur();
+			return false;
+		}
+		return true;
+	}
+
+	function protectMACAddress() {
+		if((document.form.rn.value!="") && (document.form.ha.value=="")) {
+			document.form.ha.blur();
+			return false;
+		}
+		return true;
+	}
+
+// end hiding -->
+			</SCRIPT>
+	</head>
+	<BODY bgcolor="#FFFFFF" onLoad="readVariables(window.location.search.substring(1));">
+		<table width="100%" border="0">
+			<tr>
+				<td class="title" align="center">Address Server Node Configuration</td>
+			</tr>
+			<tr>
+				<td align="center">
+					<br>
+					<form NAME="form" METHOD="GET" ACTION="DHCPa_IF" onSubmit="return validateForm()">
+						<input type="hidden" name="API" value=""> <input type="hidden" name="id" value="">
+						<table BORDER="0" CELLSPACING="0" CELLPADDING="0" COLS="2" WIDTH="400" HEIGHT="160" BGCOLOR="#C0C0C0">
+							<tr>
+								<td class="inputCell"WIDTH="40%"><font color="#000000">&nbsp;&nbsp; Role Name:</font></td>
+								<td class="inputCell"><input TYPE="text" NAME="rn" VALUE="" size="20" maxlength="16" onFocus="return protectRoleName()" onBlur="return validateRoleName(this)"></td>
+							</tr>
+							<tr>
+								<td class="inputCell"><font color="#000000">&nbsp;&nbsp; Device Mac address:</font></td>
+								<td class="inputCell"><input TYPE="text" NAME="ha" VALUE="" size="20" onFocus="return protectMACAddress()" onBlur="return validateMacAddress(this)"></td>
+							</tr>
+							<tr>
+								<td class="inputCell"><font color="#000000">&nbsp;&nbsp; Device IP address:</font></td>
+								<td class="inputCell"><input TYPE="text" NAME="ip" VALUE="" size="20" onChange="return validateIPAddress(this)"></td>
+							</tr>
+							<tr>
+								<td class="inputCell"><font color="#000000">&nbsp;&nbsp; Subnet Mask:</font></td>
+								<td class="inputCell"><input TYPE="text" NAME="sm" VALUE="" size="20" onChange="return validateIPAddress(this)"></td>
+							</tr>
+							<tr>
+								<td class="inputCell"><font color="#000000">&nbsp;&nbsp; Gateway:</font></td>
+								<td class="inputCell"><input TYPE="text" NAME="gw" VALUE="" size="20" onChange="return validateIPAddress(this)"></td>
+							</tr>
+						</table>
+						<p>
+							<input type="submit" name="submit" value="Submit the Form"> <input type="reset" name="reset" value="Reset the Form">
+					</form>
+					<p>
+						<form METHOD="GET" ACTION="DHCPa_IF">
+							<input type="hidden" name="API" value="REFRESH"> <input type="submit" name="submit" value="Show Address Server Configuration">
+						</form>
+				</td>
+			</tr>
+			<tr>
+				<td align="center">Copyright &copy; 1998-2006, Schneider Automation SAS. All rights 
+					reserved.</td>
+			</tr>
+		</table>
+	</BODY>
+</html>

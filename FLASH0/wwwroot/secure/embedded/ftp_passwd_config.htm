@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<title>FTP User Modify</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<link href="../../lib/main.css" type="text/css" rel="stylesheet">
+	</head>
+	<body>
+		<table width="100%" border="0">
+			<tr>
+				<td class="title" align="center">Modify FTP Server User Name and Password</td>
+			</tr>
+			<tr>
+				<td align="center">
+					<br>
+					<SCRIPT LANGUAGE="JavaScript">
+<!-- Hide code from non-js browsers
+    function validateForm()    
+    {        
+        formObj = document.sample;
+        if ((formObj.user.value == "") || (formObj.passwd.value  == ""))         
+        {
+            alert("You have not filled in all the fields.");
+            return false;        
+        }        
+        else
+        {
+            return true;    
+        }
+    }
+// end hiding -->
+					</SCRIPT>
+					<form NAME="sample" METHOD="GET" ACTION="builtin" onSubmit="return validateForm()">
+						<table BORDER="0" CELLSPACING="0" CELLPADDING="0" COLS="2" WIDTH="440" HEIGHT="120" BGCOLOR="#C0C0C0">
+							<tr>
+								<td class="inputCell">&nbsp;&nbsp;New User Name (1 - 40 chars):</td>
+								<td class="inputCell"><input TYPE="text" NAME="user" VALUE="" size="20"></td>
+							</tr>
+							<tr>
+								<td class="inputCell">&nbsp;&nbsp;New Password (8 - 40 chars):</td>
+								<td class="inputCell"><input TYPE="password" NAME="passwd" VALUE="" size="20"></td>
+							</tr>
+						</table>
+						<p>
+							<input TYPE="reset" name="reset" value="Reset Form"> <input type="submit" name="submit" value="Submit FTP Password Change">
+						</p>
+					</form>
+					<form METHOD="GET" ACTION="builtin">
+						<input type="submit" name="submit" value="Delete FTP Password File">
+					</form>
+				</td>
+			</tr>
+			<tr>
+				<td align="center">Copyright &copy; 1998-2006, Schneider Automation SAS. All rights 
+					reserved.</td>
+			</tr>
+		</table>
+	</body>
+</html>
